@@ -1,21 +1,34 @@
-# ตัวอย่างการเรียก Open API ของ กลต
+# Example of SEC Open API Usage
+
+Get Funds information and save to csv file
+
+Code style standard: pycodestyle
 
 ## Installation
-Check ก่อนว่ามี Python Version 3 แล้วด้วย
-```
+
+Check installed python version, make sure you're using Python 3
+
+```bash
 python --version
 ```
-หากไม่เคยลง Modules เหล่านี้มาก่อนให้รัน
-```
-pip install pandas openpyxl requests 
-```
-## การทำงาน
-Script จะไปกวาด Id ของทุก บลจ และใช้ Id ของแต่ละ บลจ ไปกวาดกองทุนทั้งหมดของ บลจ นั้น ๆ จากนั้นเอา Id ของกองทั้งหมดไปหา Risk Spectrum
-จากนั้น Merge ข้อมูลทั้งหมด และ Save ลง File Excel
 
-Run script ด้วย
+Install dependencies
+
+```bash
+pip install -r requirements.txt
 ```
-python AllRiskSpectrum.py
+
+## How it works
+
+- Get API Key from From Environment variable
+- A python Script requests unique ID of every fund house available
+- Each ID is then used to request all funds of the house to pandas dataframe.
+- Convert dataframe to csv
+
+Run the script using
+
+```bash
+SEC_OPEN_API_KEY={yourAPIKey} python get_funds_csv.py
 ```
 
 Happy Scripting~
